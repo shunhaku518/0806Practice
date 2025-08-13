@@ -1,3 +1,26 @@
+h2 {
+    font-size: 2.2rem;
+    /* text-decoration: underline;  文字への下線 */
+    border-bottom: 2px solid #f60;
+
+}
+
+a {
+    color: #07c;
+    text-decoration: none;
+    /* hoverした時、どのくらいで状況が変わるのかの指定秒数 */
+    transition: .4s;
+}
+
+/* マウスを上乗せしている最中のaのデザイン */
+a:hover {
+    color: #5af;
+}
+
+img {
+    border-radius: 8px;
+}
+
 span {
     color: orange;
 }
@@ -24,6 +47,12 @@ img {
     padding-top: 60px;
     /* 余白計算を含み計算にする */
     box-sizing: border-box;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -34,12 +63,11 @@ img {
 }
 
 p {
-    color: white;
-    text-align: center;
+    line-height: 1.8;
 }
 
 .main-catch {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: bold;
 }
 
@@ -56,17 +84,15 @@ p {
     /* 角の丸み 左上　右上　右下　左下の順で値の設定も出来る */
     border-radius: 8px;
 
-    /* 性格をpやdivと同じに捻じ曲げる （元々はinlineという性質→marginとか効かない） */
-    display: block;
+    /* 性格をpやdivと同じに捻じ曲げる（元々はinlineという性質→marginとか効かない） */
+    display: inline-block;
     /* 中央揃え */
     text-align: center;
-    /* 幅を絞る */
-    width: 30%;
     /* 外側の余白 */
     /* margin-top: 20px; */
     /* margin-right: auto; */
     /* margin-left: auto; */
-    margin: 20px auto 0;
+    margin-top: 20px;
 
 }
 
@@ -78,6 +104,8 @@ header {
     align-items: center;
     /* 要素の進行方向に対して垂直方向を中央揃え */
     padding: 10px 40px;
+    /* 影   値：縦 横 ぼかし具合*/
+    box-shadow: 0 2px 5px #333;
 }
 
 ul {
@@ -92,6 +120,7 @@ ul {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 30px;
+    padding-bottom: 80px;
 }
 
 .gallery img:first-child {
@@ -209,4 +238,87 @@ main {
     /* 光の3原色 赤成分・緑成分・青成分 */
 
     background-color: #f9f9f9;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    /* background-○○系を省略して、まとめて設定出来る（省略系は出来ないものもある） */
+    background: #333;
+    color: #fff;
+}
+
+footer ul {
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+footer a {
+    color: #fff;
+}
+
+/* --- レスポンシブ対応 (スマートフォン表示) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav li {
+        margin: 5px 0;
+    }
+
+    .main-catch {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        /* 1列にする */
+    }
+
+    main {
+        width: 100%;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 300px);
+    }
+
+    .gallery img:first-child {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .gallery img:nth-child(2) {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .gallery img:last-child {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
 }
